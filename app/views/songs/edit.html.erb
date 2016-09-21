@@ -1,0 +1,44 @@
+<h1>Edit Song</h1>
+<%= form_for(@song) do |t| %>
+  <% if @song.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@song.errors.count, "error") %>
+        occurred while editing this song:
+      </h2>
+      <ul>
+        <% @song.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+
+    </div>
+  <% end %>
+
+  <p>
+    <%= t.label :title %>
+    <%= t.text_field :title %>
+  </p>
+
+  <p>
+    <%= t.label :artist_name %>
+    <%= t.text_field :artist_name %>
+  </p>
+
+  <p>
+    <%= t.label :released %>
+    <%= t.check_box :released %>
+  </p>
+
+  <p>
+    <%= t.label :release_year %>
+    <%= t.text_field :release_year %>
+  </p>
+
+  <p>
+    <%= t.label :genre %>
+    <%= t.text_field :genre %>
+  </p>
+
+  <p><%=t.submit %></p>
+<% end %>
